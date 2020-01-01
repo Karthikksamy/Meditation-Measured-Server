@@ -9,6 +9,11 @@ services:
       - type: volume
         source: dbdata
         target: /data/db
+    ports:
+      - "27017:27017"
+    command:
+#      --bind_ip 0.0.0.0 --auth
+      --bind_ip 0.0.0.0        
 
   front_end:
     image: karthikksamy/meditation-measured:latest
@@ -22,6 +27,12 @@ services:
 
 networks:
   todo_net:
+##### Experimental changes with different NW. DO NOT Enable below  
+#    driver: bridge  
+#    ipam:
+#      config:
+#      - subnet: 172.16.0.0/24
+#        gateway: 172.16.0.254
 
 volumes:
   dbdata:
