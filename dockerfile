@@ -10,4 +10,4 @@ RUN npm install
 EXPOSE 3000
 
 
-ENTRYPOINT [ "node", "./bin/www" ]
+ENTRYPOINT [ "node", "./app/bin/www" ]
