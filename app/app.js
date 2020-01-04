@@ -24,11 +24,10 @@ const upload = multer({ storage: Storage });
 const multerS3 = require('multer-s3');
 const aws = require('aws-sdk');
 //***************** TODO: Separate the configs
-const ID = 'AKIAWKPZ3EOXLMF4VK55';
-const SECRET = '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';
+const ID = 'AKIAWKPZ3EOXA6PUYRVI';
+const SECRET = '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' ;
 const REGION = 'us-west-2';
 const BUCKET_NAME = 'meditation-metrics-kkyp-20200103';
-//'arn:aws:s3:::meditation-metrics-kkyp-20200103';
 
 aws.config.update({
     secretAccessKey: SECRET,
@@ -56,7 +55,7 @@ const todoRouter = require('./routes/todoRoutes');
 
 var app = express();
 
-console.log('this is the __dirname %s',__dirname);
+console.log('Starting the server %s',__dirname);
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
