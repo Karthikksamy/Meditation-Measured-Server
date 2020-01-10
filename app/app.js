@@ -19,14 +19,47 @@ const Storage = multer.diskStorage({
 
 const upload = multer({ storage: Storage });
 
+/* //experiment to local file access
+var fs = require('fs');
+ 
+var test_path = "/home/.aws";
+ 
+fs.readdir(test_path, function(err, items) {
+    console.log(items);
+ 
+    for (var i=0; i<items.length; i++) {
+        console.log(items[i]);
+    }
+    
+});
+ 
+fs.readFile('/home/.aws/credentials', 'utf8', function(err, contents) {
+    console.log(contents);
+});
+*/
 
 //AWS Image upload
 const multerS3 = require('multer-s3');
 const aws = require('aws-sdk');
-//***************** TODO: Separate the configs
-const ID = 'AKIAWKPZ3EOXA6PUYRVI';
-const SECRET = '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' ;
-const REGION = 'us-west-2';
+/*
+var credentials = new aws.SharedIniFileCredentials({profile: 'medt-server-account'});
+aws.config.credentials = credentials;
+console.log(credentials)
+aws.config.getCredentials(function(err) {
+  if (err) console.log(err.stack);
+  // credentials not loaded
+  else {
+    console.log("Access key:", AWS.config.credentials.accessKeyId);
+    console.log("Secret access key:", AWS.config.credentials.secretAccessKey);
+  }
+});
+*/
+//***************** TODO: use IAM for getting the keys
+
+const ID = process.env.aws_access_key_id;
+const SECRET = process.env.aws_secret_access_key;
+const REGION = process.env.AWS_DEFAULT_REGION;//'us-west-2';
+
 const BUCKET_NAME = 'meditation-metrics-kkyp-20200103';
 
 aws.config.update({

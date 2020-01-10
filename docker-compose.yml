@@ -14,7 +14,7 @@ services:
       - "27017:27017"
     command:
 #      --bind_ip 0.0.0.0 --auth
-      --bind_ip 0.0.0.0        
+      --bind_ip 0.0.0.0       
 
   front_end:
     image: meditation-measured:latest
@@ -22,6 +22,8 @@ services:
       - "80:3000"
     networks:
       - todo_net
+    env_file:
+      - .env        
     environment:
       - DB_URL=mongodb://db:27017
       - DEBUG=app:*

@@ -21,6 +21,8 @@ curl -o /srv/docker/docker-compose.yml https://raw.githubusercontent.com/karthik
 curl -o /etc/systemd/system/docker-compose-app.service https://raw.githubusercontent.com/karthikksamy/Meditation-Measured-Server/master/docker-compose-app.service
 systemctl enable docker-compose-app
 
+echo "push the .env file with s3 credentials to /srv/docker"
+
 # start up the application via docker-compose
 docker-compose -f /srv/docker/docker-compose.yml up -d
 
