@@ -4,7 +4,7 @@ This repository contains the AWS server files for the research project on Measur
 Launch script
 
   ```
-  curl -o lightsail-compose.sh https://raw.githubusercontent.com/karthikksamy/meditation-measured-server/master/lightsail-compose.sh
+  curl -o ~/lightsail-compose.sh https://raw.githubusercontent.com/karthikksamy/meditation-measured-server/master/lightsail-compose.sh
 
   chmod +x ./lightsail-compose.sh
 
